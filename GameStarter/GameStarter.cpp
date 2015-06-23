@@ -5,6 +5,8 @@
 #include <iostream>
 #include <list>
 
+int xpNeededForLevel[];
+
 enum MainMenu {
 	CHARACTER = 1, 
 	INVENTORY, 
@@ -120,7 +122,7 @@ void GameStarter::showCharacterMenu()
 			toon->currentHealth -= 10;
 			break;
 		case 5: // SHOW XP
-			cout << "Current XP: " << toon->currentXp << endl;
+			cout << "Current XP: " << toon->currentXp << "/" << xpNeededForLevel[toon->currentLevel+1] << endl;
 			break;
 		case 6: // ADD XP
 			cout << "Adding 100 xp" << endl;

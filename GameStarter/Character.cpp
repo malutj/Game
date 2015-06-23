@@ -86,6 +86,8 @@ void Character::levelUp()
 
 	// reset the experience points (roll over any extra into the new level)
 	currentXp = currentXp % xpNeededForLevel[currentLevel];
+
+    cout << "DING! Level " << currentLevel << " reached!" << endl;
 }
 
 
