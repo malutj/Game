@@ -41,11 +41,13 @@ public:
 	void addExperience(int xp);
 	void showInventory();
 
+    void pickUpItem(const Item &item);
+
 	//public members
 	string	name;
 	int		currentLevel;
 	int		currentXp;
-	void    useItem(Item &item);
+	void    useItem();
 	int		currentHealth;
 	int		maxHealth;
 

@@ -10,7 +10,11 @@ void e_boostAccuracy(Character &user, Character &target)
 
 void e_raiseHealth(Character &user, Character &target)
 {
-	std::cout << "Adding 10 points to health" << std::endl;
-	// add 10 points to health, but cap at max health
-	user.currentHealth = ( user.currentHealth + 10) % user.maxHealth;
+	std::cout << "Adding 10% to health" << std::endl;
+	// add 10 % hp back to health, but cap at max health
+    int healthToAdd = user.maxHealth * .1;
+	user.currentHealth = ( user.currentHealth + healthToAdd);
+
+    if (user.currentHealth > user.maxHealth)
+        user.currentHealth = user.maxHealth;
 }

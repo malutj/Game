@@ -5,7 +5,7 @@
 
 using namespace std;
 
-list<Item> *inventory;
+//list<Item> *inventory;
 int maxSize;
 int currentSize;
 
@@ -13,7 +13,7 @@ int currentSize;
 //CONSTRUCTOR
 Inventory::Inventory()
 {
-	inventory = new list<Item>();
+	//inventory = new list<Item>();
 	maxSize = 5;
 	currentSize = 0;
 }
@@ -32,13 +32,13 @@ Inventory::~Inventory()
 //This method removes an item from the inventory
 void Inventory::removeFromInventory(const Item &item)
 {
-	if (inventory->size() == 0)
+	if (this->size() == 0)
 	{
 		cout << "Inventory is empty" << endl;
 		return;
 	}
 	--currentSize;
-	inventory->remove(item);
+	this->remove(item);
 
 	cout << item.name << " removed from inventory" << endl;
 }
@@ -49,7 +49,7 @@ void Inventory::removeFromInventory(const Item &item)
 void Inventory::addToInventory(const Item &item)
 {
 	// if our inventory is full, return false
-	if (inventoryIsFull())
+	if (isFull())
 	{
 		cout << "Inventory is already full" << endl;
 		return;
@@ -57,7 +57,7 @@ void Inventory::addToInventory(const Item &item)
 		
 
 	// add the item to the back of the inventory list
-	inventory->push_back(item);
+	this->push_back(item);
 	++currentSize;
 
 	cout << item.name << " added to inventory" << endl;
@@ -65,7 +65,7 @@ void Inventory::addToInventory(const Item &item)
 
 
 //This method returns TRUE if the inventory is full
-bool Inventory::inventoryIsFull()
+bool Inventory::isFull()
 {
 	return currentSize == maxSize;
 }
@@ -100,8 +100,14 @@ void Inventory::showContents()
 		return;
 	}
 
-	for (list<Item>::iterator it = inventory->begin(); it != inventory->end(); ++it)
+	for (list<Item>::iterator it = this->begin(); it != this->end(); ++it)
 	{
 		cout << it->name << endl;
 	}
+}
+
+
+bool Inventory::isEmpty()
+{
+    return currentSize == 0;
 }

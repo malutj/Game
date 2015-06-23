@@ -38,28 +38,28 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GameStarter.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\include\Character.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\include\Communicator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Item.h">
+    <ClInclude Include="..\include\Effects.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Inventory.h">
+    <ClInclude Include="..\include\ExperienceLevels.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ExperienceLevels.h">
+    <ClInclude Include="..\include\GameStarter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Effects.h">
+    <ClInclude Include="..\include\Inventory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ItemDatabase.h">
+    <ClInclude Include="..\include\Item.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ItemDatabase.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

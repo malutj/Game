@@ -104,3 +104,27 @@ void Character::showInventory()
 {
 	inventory->showContents();
 }
+
+
+void Character::pickUpItem(const Item &item)
+{
+    inventory->addToInventory(item);
+}
+
+
+
+void Character::useItem()
+{
+    if (inventory->isEmpty())
+    {
+        cout << "You don't have any items" << endl;
+        return;
+    }
+
+    Item item = inventory->front();
+
+    cout << "using " << item.name << endl;
+
+    item.useItem(this, this);
+    inventory->removeFromInventory(item);
+}

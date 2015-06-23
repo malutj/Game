@@ -19,7 +19,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v110</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -53,7 +53,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Users\malutj\Documents\GitHub\PolarFrog\VideoGame\Game\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -91,12 +91,12 @@
   <ItemGroup>
     <ClInclude Include="..\include\Character.h" />
     <ClInclude Include="..\include\Communicator.h" />
-    <ClInclude Include="Effects.h" />
-    <ClInclude Include="ExperienceLevels.h" />
-    <ClInclude Include="GameStarter.h" />
-    <ClInclude Include="Inventory.h" />
-    <ClInclude Include="Item.h" />
-    <ClInclude Include="ItemDatabase.h" />
+    <ClInclude Include="..\include\Effects.h" />
+    <ClInclude Include="..\include\ExperienceLevels.h" />
+    <ClInclude Include="..\include\GameStarter.h" />
+    <ClInclude Include="..\include\Inventory.h" />
+    <ClInclude Include="..\include\Item.h" />
+    <ClInclude Include="..\include\ItemDatabase.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -59,6 +59,7 @@ void GameStarter::showMenu()
 			showInventoryMenu();
 			break;
 		case ITEMS:
+            showItemMenu();
 			break;
 		case QUIT:
 			return;
@@ -151,8 +152,11 @@ void GameStarter::showInventoryMenu()
 		switch (input)
 		{
 		case 1: // SHOW INVENTORY
+            toon->showInventory();
 			break;
 		case 2: // USE ITEM
+            //TODO this will need some way of accessing the actual item
+            toon->useItem();
 			break;
 		case 3: // DROP ITEM
 			break;
@@ -165,6 +169,7 @@ void GameStarter::showInventoryMenu()
 
 void GameStarter::showItemMenu()
 {
+    Item *item;
 	do
 	{
 		cout << "1. Create consumable" << endl;
@@ -174,9 +179,12 @@ void GameStarter::showItemMenu()
 
 		int input;
 		cin >> input;
+
 		switch (input)
 		{
 		case 1: // CREATE CONSUMABLE
+            item = new Medkit();
+            toon->pickUpItem(*item);
 			break;
 		case 2: // CREATE WEAPON
 			break;
