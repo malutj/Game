@@ -21,7 +21,6 @@ public:
 
 	//public members
 	bool isEquippable;
-	bool isUsable;
 	int  maxStack;
 	int  itemID;
 	ItemType  itemType;

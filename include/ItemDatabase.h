@@ -1,11 +1,14 @@
 #pragma once
 
-#include "Item.h"
+#include "Consumable.h"
+#include "Weapon.h"
+#include "Ammunition.h"
 #include "Effects.h"
 
 #include <iostream>
 
-class Medkit : public Item
+// CONSUMABLES
+class Medkit : public Consumable
 {
 public:
 
@@ -15,8 +18,6 @@ public:
 	Medkit()
 	{
 		name = "Medkit";
-		itemType = Consumable;
-		isUsable = true;
 		isEquippable = false;
 		effectList = new std::list<Effect>();
 
@@ -32,4 +33,17 @@ public:
 	{
 		cout << "Medkit being destructed" << endl;
 	};
+};
+
+
+// WEAPONS
+class Glock23 : public Weapon
+{
+};
+
+
+// AMMUNITION
+class Ammo_40_Cal : public Ammunition
+{
+
 };

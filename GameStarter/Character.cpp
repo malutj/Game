@@ -95,7 +95,7 @@ void Character::levelUp()
 void useItem(Item &item)
 {
 	// make sure the item is usable
-	if (!item.isUsable)
+    if (!item.itemType == item.Consumable)
 		return;
 
 	
