@@ -22,5 +22,7 @@ private:
 	void showCharacterMenu();
 	void showInventoryMenu();
 	void showItemMenu();
+	void drawFrame();
+	void showWindow();
 };
 

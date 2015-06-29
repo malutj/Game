@@ -12,7 +12,7 @@ void e_raiseHealth(Character &user, Character &target)
 {
 	std::cout << "Adding 10% to health" << std::endl;
 	// add 10 % hp back to health, but cap at max health
-    int healthToAdd = user.maxHealth * .1;
+    int healthToAdd = (int)(user.maxHealth * .1);
 	user.currentHealth = ( user.currentHealth + healthToAdd);
 
     if (user.currentHealth > user.maxHealth)
