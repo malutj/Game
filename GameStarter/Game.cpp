@@ -1,11 +1,9 @@
-#include "GameStarter.h"
+#include "Game.h"
 #include "Communicator.h"
 #include "ItemDatabase.h"
 
 #include <iostream>
 #include <list>
-#include <d2d1.h>
-#include <WinBase.h>
 
 #pragma comment(lib, "d2d1")
 
@@ -18,126 +16,39 @@ enum MainMenu {
 	QUIT
 };
 
-ID2D1Factory *gfx;
 HWND hwndMain;
-HINSTANCE hinst;
 
-GameStarter::GameStarter()
+Game::Game(HWND &hwnd)
 {
 	com = new Communicator();
 	toon = new Character();
-	HRESULT hr = D2D1CreateFactory(D2D1_FACTORY_TYPE_SINGLE_THREADED, &gfx);
+
 }
 
 
-GameStarter::~GameStarter()
+Game::~Game()
 {
 	delete(com);
 	delete(toon);
-	delete(gfx);
 }
 
-void GameStarter::drawFrame()
+void Game::drawFrame()
 {
-	RECT rc;
-	GetClientRect(hwndMain, &rc);
-
-	// create a Direct 2D render target
-	ID2D1HwndRenderTarget *pRT;
-	HRESULT hr = gfx->CreateHwndRenderTarget(D2D1::RenderTargetProperties(),
-		D2D1::HwndRenderTargetProperties(
-		hwndMain, D2D1::SizeU(
-		rc.bottom - rc.left,
-		rc.bottom - rc.top)
-		),
-		&pRT);
-
-	// create a brush
-	ID2D1SolidColorBrush *pBlackBrush = NULL;
-	if (SUCCEEDED(hr))
-	{
-		pRT->CreateSolidColorBrush(
-			D2D1::ColorF(D2D1::ColorF::Black),
-			&pBlackBrush
-			);
-	}
-
-	if (!pBlackBrush)
-		return;
-
-	// draw the rectangle
-	pRT->BeginDraw();
-
-	pRT->DrawRectangle(
-		D2D1::RectF(
-		rc.left + 100.0f,
-		rc.top + 100.0f,
-		rc.right - 100.0f,
-		rc.bottom - 100.0f),
-		pBlackBrush);
-
-	hr = pRT->EndDraw();
 
 }
-int GameStarter::run()
+void Game::run()
 {
-	// show the window
-	showWindow();
-
-	// obtain size of the drawing area
-	while (true)
-	{
-		drawFrame();
-	}
 	
+	drawFrame();
 
-	//showMenu();
-
-	return 0;
 }
-
-void GameStarter::showWindow()
-{
-	//WNDCLASS Wclass;
-	//Wclass.lpszClassName = L"GameStarter";
-	//hwndMain = CreateWindowEx(
-	//	0,                      // no extended styles           
-	//	L"GameStarter",           // class name                   
-	//	L"Main Window",          // window name                  
-	//	WS_OVERLAPPEDWINDOW |   // overlapped window            
-	//	WS_HSCROLL |			// horizontal scroll bar        
-	//	WS_VSCROLL,				// vertical scroll bar          
-	//	CW_USEDEFAULT,          // default horizontal position  
-	//	CW_USEDEFAULT,          // default vertical position    
-	//	CW_USEDEFAULT,          // default width                
-	//	CW_USEDEFAULT,          // default height               
-	//	(HWND)NULL,            // no parent or owner window    
-	//	(HMENU)NULL,           // class menu used              
-	//	hinst,              // instance handle              
-	//	NULL);                  // no window creation data      
-
-	//if (!hwndMain)
-	//{
-	//	cout << "unable to create a window" << endl;
-	//	return;
-	//}
-		
-
-	// Show the window using the flag specified by the program 
-	// that started the application, and send the application 
-	// a WM_PAINT message. 
-
-	//ShowWindow(hwndMain, SW_SHOWDEFAULT);
-	//UpdateWindow(hwndMain);
-}
-
-void GameStarter::init()
+void Game::init()
 {
 	/*com->promptUser("What would you like to name your character?");
 	toon->name = com->getInputString();*/
 }
 
-void GameStarter::showMenu()
+void Game::showMenu()
 {
 	// start game loop here
 	do{
@@ -169,7 +80,7 @@ void GameStarter::showMenu()
 
 
 
-void GameStarter::createItem()
+void Game::createItem()
 {
 	// create the item
 	Medkit *mk = new Medkit();
@@ -177,14 +88,14 @@ void GameStarter::createItem()
 }
 
 
-void GameStarter::showInventory()
+void Game::showInventory()
 {
 	toon->showInventory();
 }
 
 
 
-void GameStarter::showCharacterMenu()
+void Game::showCharacterMenu()
 {
 	do
 	{
@@ -235,7 +146,7 @@ void GameStarter::showCharacterMenu()
 }
 
 
-void GameStarter::showInventoryMenu()
+void Game::showInventoryMenu()
 {
 	do
 	{
@@ -265,7 +176,7 @@ void GameStarter::showInventoryMenu()
 }
 
 
-void GameStarter::showItemMenu()
+void Game::showItemMenu()
 {
 	Item *item;
 	do

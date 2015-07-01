@@ -1,19 +1,22 @@
 #pragma once
+#include <Windows.h>
 #include "Communicator.h"
 #include "Character.h"
+#include <d2d1.h>
 
-class GameStarter
+class Game
 {
 public:
-	GameStarter();
-	~GameStarter();
+	Game(HWND &hwnd);
+	~Game();
 
-	int run();
+	void run();
 	void init();
 
 private:
 	Communicator *com;
 	Character *toon;
+	
 	void showMenu();
 
 	// menu options
@@ -23,6 +26,7 @@ private:
 	void showInventoryMenu();
 	void showItemMenu();
 	void drawFrame();
-	void showWindow();
+
+
 };
 

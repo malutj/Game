@@ -56,7 +56,7 @@
       <AdditionalIncludeDirectories>../Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
@@ -85,7 +85,7 @@
     <ClCompile Include="Communicator.cpp" />
     <ClCompile Include="Consumable.cpp" />
     <ClCompile Include="Effects.cpp" />
-    <ClCompile Include="GameStarter.cpp" />
+    <ClCompile Include="Game.cpp" />
     <ClCompile Include="Inventory.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="main.cpp" />
@@ -96,7 +96,7 @@
     <ClInclude Include="..\include\Communicator.h" />
     <ClInclude Include="..\include\Effects.h" />
     <ClInclude Include="..\include\ExperienceLevels.h" />
-    <ClInclude Include="..\include\GameStarter.h" />
+    <ClInclude Include="..\include\Game.h" />
     <ClInclude Include="..\include\Inventory.h" />
     <ClInclude Include="..\include\Item.h" />
     <ClInclude Include="..\include\ItemDatabase.h" />
